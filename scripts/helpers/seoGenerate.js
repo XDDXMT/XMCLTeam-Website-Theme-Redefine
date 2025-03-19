@@ -1,0 +1,1 @@
+hexo.extend.helper.register("generate_seo",function(o,e){const s=this;let t="";if(e.robots?t=e.robots:o.seo&&o.seo.robots&&(s.is_home()?t=0==e.prev?o.seo.robots.home_first_page:o.seo.robots.home_other_pages:s.is_archive()?t=o.seo.robots.archive:s.is_category()?t=o.seo.robots.category:s.is_tag()&&(t=o.seo.robots.tag)),t)return`<meta name="robots" content="${t}">`});

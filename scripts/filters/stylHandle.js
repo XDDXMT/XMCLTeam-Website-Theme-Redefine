@@ -1,0 +1,1 @@
+hexo.extend.filter.register("stylus:renderer",function(e){e.define("url-for",function(e){return hexo.extend.helper.get("url_for").bind(hexo)(e.val)})});

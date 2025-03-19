@@ -1,0 +1,1 @@
+"use strict";hexo.extend.helper.register("autoCanonical",function(e,r){var n=e.url;return"/"!==e.url.charAt(e.url.length-1)&&(n+="/"),'<link rel="canonical" href="'+n+r.canonical_path.replace("index.html","").toLowerCase()+'"/>'});

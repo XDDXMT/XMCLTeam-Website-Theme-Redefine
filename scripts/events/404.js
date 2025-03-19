@@ -1,0 +1,1 @@
+hexo.extend.generator.register("404",function(t){return{path:"404.html",layout:"404",data:{title:"Page Not Found",page:t.pages.findOne({path:"404.html"})}}});
