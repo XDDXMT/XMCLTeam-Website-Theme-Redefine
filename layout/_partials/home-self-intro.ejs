@@ -1,0 +1,42 @@
+<div class="home-self-intro">
+    <br>
+    <div class="home-intro-title">我们是谁？</div>
+    <div class="home-intro-content">
+        XMCL 团队是一个非营利、非商业的开发组织。<br>
+        自 2023/08/01 起，我们在编写代码的道路上不断学习、持续前行，这份坚持始终伴随着每一位成员。<br>
+        我们携手并进，以勇于创新、不畏挑战的精神，共同构建这个团体。
+    </div>
+
+    <div class="scroll-container">
+        <div class="scroll-button-container"><button class="scroll-button scroll-button-left" onclick="scrollToLeft()"><i class="fas fa-chevron-left"></i></button></div>
+        <div class="members">
+            <% theme.members.forEach(function(member) { %>
+                    <div class="member">
+                        <img class="member-image" src="<%= member.avatar %>" alt="<%= member.name %>">
+                        <div class="member-name"><a href="<%= member.link %>"><%= member.name %>&nbsp;<i class="<%= member.icon %>"></i></a></div>
+                        <div class="member-role"><%= member.role %></div>
+                    </div>
+            <% }) %>
+        </div>
+        <div class="scroll-button-container"><button class="scroll-button scroll-button-right" onclick="scrollToRight()"><i class="fas fa-chevron-right"></i></button></div>
+    </div>
+</div>
+<script>
+    const membersContainer = document.querySelector('.members');
+    membersContainer.addEventListener('wheel', function(e) {
+        if (
+            (e.deltaY < 0 && this.scrollLeft <= 0) ||
+        (e.deltaY > 0 && this.scrollLeft + this.offsetWidth >= this.scrollWidth)) {
+        return;
+    }
+        e.preventDefault(); // 阻止默认的垂直滚动
+        membersContainer.scrollBy({left: e.deltaY*4, behavior: 'smooth'});
+    });
+    function scrollToLeft() {
+        membersContainer.scrollBy({left: -195, behavior: 'smooth'});
+    }
+
+    function scrollToRight() {
+        membersContainer.scrollBy({left: 195, behavior: 'smooth'});
+    }
+</script>
